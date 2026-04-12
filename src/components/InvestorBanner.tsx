@@ -19,8 +19,7 @@ export default function InvestorBanner() {
             </h2>
 
             <p className="text-gray-400 mt-4 max-w-xl mx-auto">
-              Join early investors powering India’s EV delivery revolution.
-              Limited fleet slots available.
+              Join early investment program, powering India’s EV delivery advancement. Limited fleet slots available.
             </p>
 
             <a

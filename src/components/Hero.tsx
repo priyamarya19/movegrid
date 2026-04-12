@@ -48,7 +48,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="#clients"
+              href="/partners"
               className="px-6 py-3 border border-gray-600 rounded-xl text-center hover:border-white transition"
             >
               For Businesses
@@ -76,7 +76,7 @@ export default function Hero() {
     25–30%
   </p>
   <p className="text-gray-400 text-sm mt-1">
-    Over ~24 months
+    Monthly returns upto 24 Months
   </p>
 </motion.div>
 
@@ -87,8 +87,8 @@ export default function Hero() {
             transition={{ delay: 0.7 }}
             className="absolute -top-6 -left-6 bg-[#12121A] px-4 py-3 rounded-xl border border-gray-800"
           >
-            <p className="text-sm text-gray-400">Fleet Growth</p>
-            <p className="text-lg font-semibold">+1200 EVs</p>
+            <p className="text-sm text-gray-400">Support </p>
+            <p className="text-lg font-semibold">EV Revolution</p>
           </motion.div>
 
           {/* Floating Metric 2 */}
@@ -98,9 +98,10 @@ export default function Hero() {
             transition={{ delay: 0.9 }}
             className="absolute -bottom-6 -right-6 bg-[#12121A] px-4 py-3 rounded-xl border border-gray-800"
           >
-            <p className="text-sm text-gray-400">CO₂ Saved</p>
-            <p className="text-lg font-semibold">18T+</p>
-          </motion.div>
+            <p className="text-sm text-gray-400">Reduce  </p>
+            <p className="text-lg font-semibold">CO₂ emission</p>
+          </motion.div> 
+          
         </div>
 
       </div>

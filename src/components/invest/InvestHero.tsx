@@ -10,8 +10,8 @@ export default function InvestHero() {
         animate={{ opacity: 1, y: 0 }}
         className="text-4xl md:text-6xl font-bold"
       >
-        Invest in EV Fleets. <br />
-        Earn Predictable Returns.
+        Invest in EV Fleets <br />
+        Earn Predictable & Higher Returns
       </motion.h1>
 
       <p className="text-gray-400 mt-6 max-w-xl mx-auto">

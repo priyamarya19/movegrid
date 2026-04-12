@@ -22,6 +22,10 @@ export default function Navbar() {
           Invest
         </Link>
 
+         <Link href="/partners" className="hover:text-[#6C5CE7]">
+          Delivery Partners
+        </Link>
+       
       </div>
 
     </nav>

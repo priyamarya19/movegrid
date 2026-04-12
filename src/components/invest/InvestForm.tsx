@@ -69,9 +69,9 @@ console.log(data);
             className="w-full p-3 rounded-lg bg-black border border-gray-700"
           >
             <option value="">Investment Range</option>
-            <option>₹50K – ₹1L</option>
-            <option>₹1L – ₹5L</option>
-            <option>₹5L+</option>
+            <option>₹6L – ₹12L</option>
+            <option>₹12L – ₹25L</option>
+            <option>₹25L+</option>
           </select>
 
           <button

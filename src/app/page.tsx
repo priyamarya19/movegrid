@@ -25,7 +25,7 @@ export default function Home() {
 
       <HowItWorks />
 
-      <Metrics />
+      {/* <Metrics /> */}
 
       <CTA />
 
