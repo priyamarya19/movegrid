@@ -9,19 +9,14 @@ export async function POST(req: Request) {
   try {
     await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "priyamarya19@gmail.com", // 👉 replace with your email
-      subject: "New Investor Lead 🚀",
-      html: `
-        <h2>New Lead Received</h2>
-        <p><strong>Name:</strong> ${body.name}</p>
-        <p><strong>Phone:</strong> ${body.phone}</p>
-        <p><strong>Amount:</strong> ${body.amount}</p>
-      `,
+      to: process.env.ADMIN_EMAIL!,
+      subject: body.subject || "New Lead — MoveGrid",
+      html: body.html,
     });
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error });
+    console.error("Email error:", error);
+    return NextResponse.json({ error }, { status: 500 });
   }
 }

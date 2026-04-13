@@ -1,7 +1,7 @@
 export default function InvestmentSnapshot() {
   const data = [
-    { label: "Returns", value: "25–30%" },
-    { label: "Duration", value: "~24 Months" },
+    { label: "Target Returns", value: "25–30%" },
+    { label: "Duration", value: "24 Months" },
     { label: "Asset", value: "EV Scooters" },
     { label: "Payout", value: "Monthly" }
   ];

@@ -1,46 +1,89 @@
-// src/components/Footer.tsx
+import Link from "next/link";
+import { Logo } from "./Logo";
+
+const footerLinks = {
+  "For Riders": [
+    { label: "Join as Delivery Partner", href: "/partners" },
+    { label: "How It Works", href: "/partners#how-it-works" },
+    { label: "Earning Plans", href: "/partners#earnings" },
+    { label: "Path to Ownership", href: "/partners#ownership" },
+  ],
+  "For Business": [
+    { label: "B2B Fleet Rental", href: "/b2b" },
+    { label: "Pricing", href: "/b2b#pricing" },
+    { label: "Get a Quote", href: "/b2b#form" },
+  ],
+  "Investors": [
+    { label: "Investment Overview", href: "/invest" },
+    { label: "Returns & ROI", href: "/invest#snapshot" },
+    { label: "Risk Disclosure", href: "/invest#risk" },
+  ],
+};
+
 export default function Footer() {
   return (
-    <footer className="px-8 md:px-20 py-10 border-t border-white/10 mt-20">
-      <div className="flex flex-col md:flex-row justify-between gap-6">
+    <footer className="bg-[#08080D] border-t border-[#1E1E2E]">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-14 pb-8">
 
-        <div>
-          <h2 className="text-xl font-bold">Powered by MOVEGRID </h2>
-          <p className="text-gray-400 mt-2">
-            <sup>&copy;</sup> Movegrid Technologies Private Limited
+        {/* Top section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+
+          {/* Brand column */}
+          <div className="lg:col-span-2">
+            <Logo size={40} className="mb-4" />
+            <p className="text-[#A0A0B8] text-sm leading-relaxed max-w-xs">
+              Building India&apos;s most advanced EV fleet network — empowering delivery partners,
+              enabling businesses, and growing investor returns.
+            </p>
+
+            <div className="mt-6 space-y-2">
+              <p className="text-xs text-[#606080] uppercase tracking-wider font-semibold">Contact</p>
+              <a
+                href="https://wa.me/918077966653"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-[#A0A0B8] hover:text-[#00C48C] transition-colors"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-[#00C48C] shrink-0">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                +91 80779 66653
+              </a>
+              <p className="text-sm text-[#A0A0B8]">NCR, India</p>
+            </div>
+          </div>
+
+          {/* Link columns */}
+          {Object.entries(footerLinks).map(([category, links]) => (
+            <div key={category}>
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-[#606080] mb-4">
+                {category}
+              </h4>
+              <ul className="space-y-2.5">
+                {links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-[#A0A0B8] hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom bar */}
+        <div className="pt-6 border-t border-[#1E1E2E] flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-[#606080]">
+            © {new Date().getFullYear()} Movegrid Technologies Pvt Ltd. All rights reserved.
+          </p>
+          <p className="text-xs text-[#606080] text-center sm:text-right max-w-sm">
+            Investment involves risk. Returns are not guaranteed. Please read all risk disclosures before investing.
           </p>
         </div>
-
-        <div>
-  
-
-  <a
-    href="https://wa.me/919639350154"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center gap-3 bg-[#12121A] px-4 py-3 rounded-xl border border-gray-800 hover:border-[#25D366] transition"
-  >
-    {/* WhatsApp Icon */}
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      fill="#25D366"
-      viewBox="0 0 24 24"
-    >
-      <path d="M20.52 3.48A11.86 11.86 0 0012.05 0C5.5 0 .14 5.36.14 11.91c0 2.1.55 4.15 1.6 5.96L0 24l6.33-1.66a11.9 11.9 0 005.72 1.46h.01c6.55 0 11.91-5.36 11.91-11.91 0-3.18-1.24-6.17-3.45-8.41zM12.06 21.5c-1.82 0-3.6-.49-5.15-1.41l-.37-.22-3.76.98 1-3.66-.24-.38a9.5 9.5 0 01-1.47-5.06c0-5.26 4.28-9.54 9.55-9.54 2.55 0 4.94 1 6.74 2.8a9.47 9.47 0 012.79 6.74c0 5.26-4.28 9.54-9.54 9.54zm5.25-7.14c-.29-.15-1.7-.84-1.96-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.91 1.13-.17.19-.34.22-.63.07-.29-.15-1.23-.45-2.34-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.44.13-.58.13-.13.29-.34.44-.51.15-.17.2-.29.3-.49.1-.19.05-.36-.02-.51-.07-.15-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.97 2.44.03 1.44 1.02 2.83 1.16 3.02.15.19 2 3.05 4.84 4.27.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.7-.69 1.94-1.36.24-.67.24-1.25.17-1.36-.07-.11-.26-.18-.55-.33z" />
-    </svg>
-
-    <span className="text-sm text-gray-300">
-      Chat on WhatsApp
-    </span>
-  </a>
-</div>
-        <div className="text-gray-400">
-          <p>Email: contact@movegrid.in</p>
-          <p>Phone: +91 96393 50154</p>
-        </div>
-
       </div>
     </footer>
   );

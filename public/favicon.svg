@@ -1,0 +1,30 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background circle -->
+  <circle cx="50" cy="50" r="50" fill="#0A0A0F"/>
+
+  <!-- Segmented outer ring -->
+  <circle
+    cx="50" cy="50" r="44"
+    stroke="#3CB54A"
+    stroke-width="7.5"
+    stroke-dasharray="20 5.3"
+    stroke-linecap="butt"
+    transform="rotate(-90 50 50)"
+  />
+
+  <!-- Top clockwise arc arrow -->
+  <path d="M 20 50 A 30 30 0 0 1 74 32" stroke="#3CB54A" stroke-width="5" stroke-linecap="round"/>
+  <!-- Arrowhead top -->
+  <path d="M 74 32 L 80 24 L 82 34" stroke="#3CB54A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Bottom clockwise arc arrow -->
+  <path d="M 80 50 A 30 30 0 0 1 26 68" stroke="#3CB54A" stroke-width="5" stroke-linecap="round"/>
+  <!-- Arrowhead bottom -->
+  <path d="M 26 68 L 20 76 L 18 66" stroke="#3CB54A" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Blue "C" arc -->
+  <path d="M 46 33 A 17 17 0 0 0 46 67" stroke="#2B72C8" stroke-width="7" stroke-linecap="round" fill="none"/>
+
+  <!-- Green lightning bolt -->
+  <path d="M 57 30 L 45 52 L 54 52 L 43 72 L 64 46 L 54 46 Z" fill="#3CB54A"/>
+</svg>

@@ -52,6 +52,21 @@ Our team will contact you shortly with next steps.
       }),
     });
 
+    // Email to admin
+    await fetch(`${baseUrl}/api/send-email`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        subject: `🚴 New Rider Application — ${name}`,
+        html: `
+          <h2>New Delivery Partner Application</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>City:</strong> ${city}</p>
+        `,
+      }),
+    });
+
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("❌ ERROR:", err);

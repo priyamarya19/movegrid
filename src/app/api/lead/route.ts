@@ -59,18 +59,19 @@ If you have any questions, feel free to reply here.
     console.log("📲 WhatsApp to user:", await wa2.text());
 
     // Email
-    const email = await fetch(`${baseUrl}/api/send-email`, {
+    await fetch(`${baseUrl}/api/send-email`, {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        to: process.env.ADMIN_EMAIL,
-        name: name,
-        phone: phone,
-        amount:amount,
-        subject: "Test Email",
-        text: `Lead: ${name}`,
+        subject: `💰 New Investor Lead — ${name}`,
+        html: `
+          <h2>New Investor Lead</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Investment Range:</strong> ${amount}</p>
+        `,
       }),
     });
-    console.log("📧 Email:", await email.text());
 
     return NextResponse.json({ success: true });
 
