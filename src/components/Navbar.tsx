@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Logo } from "./Logo";
+import { LogoWordmark } from "./LogoWordmark";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -38,7 +38,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="MoveGrid Home">
-          <Logo size={36} />
+          <LogoWordmark height={56} />
         </Link>
 
         {/* Desktop links */}

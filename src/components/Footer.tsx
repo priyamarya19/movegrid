@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Logo } from "./Logo";
+import { LogoWordmark } from "./LogoWordmark";
 
 const footerLinks = {
   "For Riders": [
@@ -30,7 +30,7 @@ export default function Footer() {
 
           {/* Brand column */}
           <div className="lg:col-span-2">
-            <Logo size={40} className="mb-4" />
+            <LogoWordmark height={48} className="mb-4" />
             <p className="text-[#A0A0B8] text-sm leading-relaxed max-w-xs">
               Building India&apos;s most advanced EV fleet network — empowering delivery partners,
               enabling businesses, and growing investor returns.
