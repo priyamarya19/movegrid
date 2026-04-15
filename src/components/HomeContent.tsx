@@ -78,25 +78,6 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-5 sm:px-8 py-16 border-b border-[var(--border)]">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display font-black text-3xl sm:text-4xl text-[var(--text-primary)] mb-4">{t("home_cta_h2")}</h2>
-          <p className="text-[var(--text-secondary)] mb-8">{t("home_cta_sub")}</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link href="/partners" className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-base bg-[#00C48C] text-[#0A0A0F] hover:bg-[#00D99A] transition-colors text-center">
-              {t("home_cta_partner_full")}
-            </Link>
-            <Link href="/b2b" className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-base border border-[#0EA5E9] text-[#0EA5E9] hover:bg-[#0EA5E9]/10 transition-colors text-center">
-              {t("home_cta_b2b_full")}
-            </Link>
-            <Link href="/invest" className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-base border border-[#6C5CE7] text-[#6C5CE7] hover:bg-[#6C5CE7]/10 transition-colors text-center">
-              {t("home_cta_invest")}
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* DELIVERY PARTNER SECTION */}
       <section className="px-5 sm:px-8 py-20 lg:py-28">
         <div className="max-w-7xl mx-auto">
@@ -261,6 +242,25 @@ export default function HomeContent() {
           <p className="text-[var(--text-secondary)] text-base sm:text-lg leading-relaxed mb-8">{t("home_about_sub")}</p>
           <div className="inline-flex items-center gap-2 bg-[#00C48C]/10 border border-[#00C48C]/20 rounded-full px-5 py-2 text-sm text-[#00C48C] font-semibold">
             {t("home_about_badge")}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="px-5 sm:px-8 py-20 border-t border-[var(--border)]">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="font-display font-black text-3xl sm:text-4xl text-[var(--text-primary)] mb-4">{t("home_cta_h2")}</h2>
+          <p className="text-[var(--text-secondary)] mb-8">{t("home_cta_sub")}</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Link href="/partners" className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-base bg-[#00C48C] text-[#0A0A0F] hover:bg-[#00D99A] transition-colors text-center">
+              {t("home_cta_partner_full")}
+            </Link>
+            <Link href="/b2b" className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-base border border-[#0EA5E9] text-[#0EA5E9] hover:bg-[#0EA5E9]/10 transition-colors text-center">
+              {t("home_cta_b2b_full")}
+            </Link>
+            <Link href="/invest" className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-base border border-[#6C5CE7] text-[#6C5CE7] hover:bg-[#6C5CE7]/10 transition-colors text-center">
+              {t("home_cta_invest")}
+            </Link>
           </div>
         </div>
       </section>
