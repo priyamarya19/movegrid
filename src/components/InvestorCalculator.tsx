@@ -35,7 +35,7 @@ export default function InvestorCalculator() {
   const activeSlab = slabs.findIndex(s => scooters >= s.min && scooters <= s.max);
 
   return (
-    <div className="bg-[#12121A] border border-[#1E1E2E] rounded-2xl p-6 sm:p-8">
+    <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 sm:p-8">
 
       {/* Slab selector */}
       <div className="flex flex-wrap gap-2 mb-6">
@@ -46,7 +46,7 @@ export default function InvestorCalculator() {
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-colors ${
               activeSlab === i
                 ? "bg-[#6C5CE7]/15 border-[#6C5CE7]/50 text-[#6C5CE7]"
-                : "border-[#1E1E2E] text-[#606080] hover:border-[#6C5CE7]/30 hover:text-[#A0A0B8]"
+                : "border-[var(--border)] text-[var(--text-muted)] hover:border-[#6C5CE7]/30 hover:text-[var(--text-secondary)]"
             }`}
           >
             {slab.label}
@@ -57,7 +57,7 @@ export default function InvestorCalculator() {
       {/* Slider */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-3">
-          <label className="text-xs font-semibold uppercase tracking-wider text-[#A0A0B8]">
+          <label className="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]">
             {t("calc_scooters")}
           </label>
           <span className="font-display font-black text-2xl text-[#6C5CE7]">{scooters}</span>
@@ -71,7 +71,7 @@ export default function InvestorCalculator() {
           onChange={(e) => setScooters(Number(e.target.value))}
           className="w-full accent-[#6C5CE7] cursor-pointer"
         />
-        <div className="relative text-xs text-[#606080] mt-1 h-4">
+        <div className="relative text-xs text-[var(--text-muted)] mt-1 h-4">
           {/* Labels positioned at their actual slider percentages: (val-10)/(100-10)*100 */}
           <span className="absolute" style={{ left: "0%" }}>10</span>
           <span className="absolute -translate-x-1/2" style={{ left: "16.7%" }}>25</span>
@@ -82,50 +82,50 @@ export default function InvestorCalculator() {
 
       {/* Output cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
-        <div className="bg-[#0A0A0F] border border-[#1E1E2E] rounded-xl p-4 text-center">
-          <p className="text-xs text-[#606080] mb-1">{t("calc_investment")}</p>
-          <p className="font-display font-black text-xl text-white">{formatINR(investment)}</p>
-          <p className="text-xs text-[#606080] mt-1">{scooters} × {formatINR(SCOOTER_COST)}</p>
+        <div className="bg-[var(--bg-base)] border border-[var(--border)] rounded-xl p-4 text-center">
+          <p className="text-xs text-[var(--text-muted)] mb-1">{t("calc_investment")}</p>
+          <p className="font-display font-black text-xl text-[var(--text-primary)]">{formatINR(investment)}</p>
+          <p className="text-xs text-[var(--text-muted)] mt-1">{scooters} × {formatINR(SCOOTER_COST)}</p>
         </div>
 
-        <div className="bg-[#0A0A0F] border border-[#6C5CE7]/20 rounded-xl p-4 text-center">
-          <p className="text-xs text-[#606080] mb-1">{t("calc_monthly")}</p>
+        <div className="bg-[var(--bg-base)] border border-[#6C5CE7]/20 rounded-xl p-4 text-center">
+          <p className="text-xs text-[var(--text-muted)] mb-1">{t("calc_monthly")}</p>
           <p className="font-display font-black text-xl text-[#6C5CE7]">{formatINR(Math.round(monthlyPayout))}*</p>
-          <p className="text-xs text-[#606080] mt-1">{t("calc_monthly_sub")}</p>
+          <p className="text-xs text-[var(--text-muted)] mt-1">{t("calc_monthly_sub")}</p>
         </div>
 
-        <div className="bg-[#0A0A0F] border border-[#1E1E2E] rounded-xl p-4 text-center">
-          <p className="text-xs text-[#606080] mb-1">{t("calc_maturity")}</p>
-          <p className="font-display font-black text-xl text-white">{formatINR(Math.round(totalAtMaturity))}*</p>
-          <p className="text-xs text-[#606080] mt-1">{t("calc_maturity_sub")}</p>
+        <div className="bg-[var(--bg-base)] border border-[var(--border)] rounded-xl p-4 text-center">
+          <p className="text-xs text-[var(--text-muted)] mb-1">{t("calc_maturity")}</p>
+          <p className="font-display font-black text-xl text-[var(--text-primary)]">{formatINR(Math.round(totalAtMaturity))}*</p>
+          <p className="text-xs text-[var(--text-muted)] mt-1">{t("calc_maturity_sub")}</p>
         </div>
       </div>
 
       {/* Breakdown bar */}
-      <div className="bg-[#0A0A0F] rounded-xl p-4 mb-4">
+      <div className="bg-[var(--bg-base)] rounded-xl p-4 mb-4">
         <div className="flex items-center justify-between text-sm mb-2">
-          <span className="text-[#A0A0B8]">{t("calc_principal")}</span>
-          <span className="text-white font-semibold">{formatINR(investment)}</span>
+          <span className="text-[var(--text-secondary)]">{t("calc_principal")}</span>
+          <span className="text-[var(--text-primary)] font-semibold">{formatINR(investment)}</span>
         </div>
         <div className="flex items-center justify-between text-sm">
-          <span className="text-[#A0A0B8]">{t("calc_returns")}</span>
+          <span className="text-[var(--text-secondary)]">{t("calc_returns")}</span>
           <span className="text-[#6C5CE7] font-semibold">+ {formatINR(Math.round(totalReturn))}*</span>
         </div>
         {/* Visual bar */}
-        <div className="mt-3 flex h-2 rounded-full overflow-hidden bg-[#1E1E2E]">
+        <div className="mt-3 flex h-2 rounded-full overflow-hidden bg-[var(--border)]">
           <div
             className="bg-white/30 rounded-l-full transition-all duration-300"
             style={{ width: `${(investment / totalAtMaturity) * 100}%` }}
           />
           <div className="bg-[#6C5CE7] rounded-r-full flex-1 transition-all duration-300" />
         </div>
-        <div className="flex justify-between text-xs text-[#606080] mt-1">
+        <div className="flex justify-between text-xs text-[var(--text-muted)] mt-1">
           <span>{t("calc_principal")}</span>
           <span>{t("calc_returns")}</span>
         </div>
       </div>
 
-      <p className="text-xs text-[#606080] leading-relaxed">
+      <p className="text-xs text-[var(--text-muted)] leading-relaxed">
         {t("calc_disclaimer")}
       </p>
     </div>

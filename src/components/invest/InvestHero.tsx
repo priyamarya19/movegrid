@@ -16,13 +16,13 @@ export default function InvestHero() {
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6"
+          className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] leading-tight mb-6"
         >
           Invest in EV Fleets.
           <br />
           <span className="text-[#6C5CE7]">Earn 25–30% Returns.</span>
         </motion.h1>
-        <p className="text-[#A0A0B8] text-lg max-w-2xl mx-auto">
+        <p className="text-[var(--text-secondary)] text-lg max-w-2xl mx-auto">
           Participate in India&apos;s growing EV delivery ecosystem with stable,
           asset-backed investments and monthly payouts.
         </p>

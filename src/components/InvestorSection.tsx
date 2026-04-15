@@ -15,16 +15,16 @@ export default function InvestorSection() {
               Built for Investors. Designed for Scale.
             </h2>
   
-            <p className="mt-4 text-gray-400">
+            <p className="mt-4 text-[var(--text-secondary)]">
               Invest in EV scooters powering India’s delivery ecosystem and earn consistent returns.
             </p>
           </div>
   
-          <div className="bg-[#12121A] p-8 rounded-2xl border border-gray-700">
+          <div className="bg-[var(--bg-card)] p-8 rounded-2xl border border-gray-700">
             <h3 className="text-3xl font-bold text-[#A29BFE]">
               25–30% Returns
             </h3>
-            <p className="text-sm text-gray-500 mt-2">
+            <p className="text-sm text-[var(--text-muted)] mt-2">
               *Projected over 24 months
             </p>
           </div>

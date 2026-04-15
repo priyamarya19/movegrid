@@ -2,14 +2,14 @@
 
 export default function ClientSection() {
   return (
-    <section id="clients" className="bg-[#0A0A0F] py-20">
+    <section id="clients" className="bg-[var(--bg-base)] py-20">
       <div className="max-w-6xl mx-auto px-6 text-center">
 
         <h2 className="text-3xl md:text-4xl font-semibold">
           Built for High-Volume Delivery Operations
         </h2>
 
-        <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+        <p className="text-[var(--text-secondary)] mt-4 max-w-2xl mx-auto">
           Reliable EV fleets designed for logistics companies looking to scale efficiently.
         </p>
 
@@ -22,7 +22,7 @@ export default function ClientSection() {
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-[#12121A] p-6 rounded-2xl border border-gray-800"
+              className="bg-[var(--bg-card)] p-6 rounded-2xl border border-[var(--border)]"
             >
               {item}
             </div>

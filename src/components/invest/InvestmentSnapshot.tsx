@@ -7,17 +7,17 @@ export default function InvestmentSnapshot() {
   ];
 
   return (
-    <section className="bg-[#0A0A0F] py-16">
+    <section className="bg-[var(--bg-base)] py-16">
       <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 px-6">
         {data.map((item, i) => (
           <div
             key={i}
-            className="bg-[#12121A] p-6 rounded-xl border border-gray-800 text-center"
+            className="bg-[var(--bg-card)] p-6 rounded-xl border border-[var(--border)] text-center"
           >
             <p className="text-[#00D1B2] text-2xl font-bold">
               {item.value}
             </p>
-            <p className="text-gray-400 text-sm mt-2">
+            <p className="text-[var(--text-secondary)] text-sm mt-2">
               {item.label}
             </p>
           </div>

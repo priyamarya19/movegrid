@@ -8,7 +8,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="bg-[#0A0A0F] py-20">
+    <section className="bg-[var(--bg-base)] py-20">
       <div className="max-w-6xl mx-auto px-6 text-center">
 
         <h2 className="text-3xl md:text-4xl font-semibold">

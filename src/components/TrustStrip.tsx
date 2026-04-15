@@ -6,10 +6,10 @@ const logos = ["Zomato", "Swiggy", "Blinkit", "Zepto"];
 
 export default function TrustStrip() {
   return (
-    <section className="bg-[#0A0A0F] py-10 border-t border-gray-900">
+    <section className="bg-[var(--bg-base)] py-10 border-t border-gray-900">
       <div className="max-w-6xl mx-auto px-6 text-center">
         
-        <p className="text-gray-500 text-sm mb-6">
+        <p className="text-[var(--text-muted)] text-sm mb-6">
           Powering operations for modern delivery platforms
         </p>
 
@@ -21,7 +21,7 @@ export default function TrustStrip() {
               animate={{ opacity: 0.6 }}
               whileHover={{ opacity: 1, scale: 1.05 }}
               transition={{ delay: i * 0.1 }}
-              className="text-gray-400 text-lg font-semibold"
+              className="text-[var(--text-secondary)] text-lg font-semibold"
             >
               {logo}
             </motion.div>

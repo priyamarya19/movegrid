@@ -61,11 +61,11 @@ export default function PartnersContent() {
             <span className="w-1.5 h-1.5 rounded-full bg-[#00C48C] animate-pulse" />
             {t("partners_badge")}
           </div>
-          <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+          <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] mb-6 leading-tight">
             {t("partners_h1_1")}<br />
             <span className="text-[#00C48C]">{t("partners_h1_2")}</span>
           </h1>
-          <p className="text-[#A0A0B8] text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-[var(--text-secondary)] text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
             {t("partners_hero_sub")}
           </p>
           <a href="#apply" className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-base bg-[#00C48C] text-[#0A0A0F] hover:bg-[#00D99A] transition-colors shadow-lg shadow-[#00C48C]/20">
@@ -76,25 +76,25 @@ export default function PartnersContent() {
       </section>
 
       {/* Illustration */}
-      <section className="px-5 sm:px-8 pb-10 border-b border-[#1E1E2E]">
+      <section className="px-5 sm:px-8 pb-10 border-b border-[var(--border)]">
         <div className="max-w-3xl mx-auto"><EarnIllustration /></div>
       </section>
 
       {/* Benefits */}
-      <section className="px-5 sm:px-8 py-20 border-t border-[#1E1E2E]">
+      <section className="px-5 sm:px-8 py-20 border-t border-[var(--border)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-display font-black text-3xl sm:text-4xl text-white mb-3">{t("partners_benefits_h2")}</h2>
-            <p className="text-[#A0A0B8] text-base max-w-xl mx-auto">{t("partners_benefits_sub")}</p>
+            <h2 className="font-display font-black text-3xl sm:text-4xl text-[var(--text-primary)] mb-3">{t("partners_benefits_h2")}</h2>
+            <p className="text-[var(--text-secondary)] text-base max-w-xl mx-auto">{t("partners_benefits_sub")}</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {benefits.map((b, i) => (
-              <div key={i} className="bg-[#12121A] border border-[#1E1E2E] rounded-2xl p-6 hover:border-[#00C48C]/30 transition-colors group">
+              <div key={i} className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 hover:border-[#00C48C]/30 transition-colors group">
                 <div className="w-11 h-11 rounded-xl bg-[#00C48C]/10 flex items-center justify-center text-[#00C48C] mb-4 group-hover:bg-[#00C48C]/20 transition-colors">
                   {b.icon}
                 </div>
-                <h3 className="font-display font-bold text-white text-base mb-1.5">{b.title}</h3>
-                <p className="text-[#A0A0B8] text-sm leading-relaxed">{b.desc}</p>
+                <h3 className="font-display font-bold text-[var(--text-primary)] text-base mb-1.5">{b.title}</h3>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
@@ -102,17 +102,17 @@ export default function PartnersContent() {
       </section>
 
       {/* How to Join */}
-      <section id="how-it-works" className="px-5 sm:px-8 py-20 bg-[#0D0D14] border-t border-[#1E1E2E]">
+      <section id="how-it-works" className="px-5 sm:px-8 py-20 bg-[var(--bg-section)] border-t border-[var(--border)]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-display font-black text-3xl sm:text-4xl text-white mb-3">{t("partners_steps_h2")}</h2>
+            <h2 className="font-display font-black text-3xl sm:text-4xl text-[var(--text-primary)] mb-3">{t("partners_steps_h2")}</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {steps.map((step, i) => (
-              <div key={i} className="bg-[#12121A] border border-[#1E1E2E] rounded-2xl p-6 text-center">
+              <div key={i} className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 text-center">
                 <span className="inline-block font-display font-black text-4xl text-[#00C48C]/20 mb-3">{step.num}</span>
-                <h3 className="font-display font-bold text-white text-base mb-2">{step.title}</h3>
-                <p className="text-[#A0A0B8] text-sm leading-relaxed">{step.desc}</p>
+                <h3 className="font-display font-bold text-[var(--text-primary)] text-base mb-2">{step.title}</h3>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -120,34 +120,34 @@ export default function PartnersContent() {
       </section>
 
       {/* Ownership Path */}
-      <section id="ownership" className="px-5 sm:px-8 py-20 border-t border-[#1E1E2E]">
+      <section id="ownership" className="px-5 sm:px-8 py-20 border-t border-[var(--border)]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-display font-black text-3xl sm:text-4xl text-white mb-3">{t("partners_ownership_h2")}</h2>
-            <p className="text-[#A0A0B8] text-base max-w-xl mx-auto">{t("partners_ownership_sub")}</p>
+            <h2 className="font-display font-black text-3xl sm:text-4xl text-[var(--text-primary)] mb-3">{t("partners_ownership_h2")}</h2>
+            <p className="text-[var(--text-secondary)] text-base max-w-xl mx-auto">{t("partners_ownership_sub")}</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {ownershipSteps.map((s, i) => (
-              <div key={i} className="bg-[#12121A] border border-[#1E1E2E] rounded-2xl p-6">
+              <div key={i} className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6">
                 <span className="inline-block bg-[#00C48C]/10 text-[#00C48C] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">{s.year}</span>
-                <h3 className="font-display font-bold text-white text-base mb-2">{s.title}</h3>
-                <p className="text-[#A0A0B8] text-sm leading-relaxed">{s.desc}</p>
+                <h3 className="font-display font-bold text-[var(--text-primary)] text-base mb-2">{s.title}</h3>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
-          <div className="mt-6 bg-[#12121A] border border-[#00C48C]/20 rounded-2xl p-6 text-center">
+          <div className="mt-6 bg-[var(--bg-card)] border border-[#00C48C]/20 rounded-2xl p-6 text-center">
             <p className="font-display font-black text-2xl sm:text-3xl text-[#00C48C] mb-2">{t("partners_own_cta")}</p>
-            <p className="text-[#A0A0B8] text-sm">{t("partners_own_cta_sub")}</p>
+            <p className="text-[var(--text-secondary)] text-sm">{t("partners_own_cta_sub")}</p>
           </div>
         </div>
       </section>
 
       {/* Apply Form */}
-      <section id="apply" className="px-5 sm:px-8 py-20 bg-[#0D0D14] border-t border-[#1E1E2E]">
+      <section id="apply" className="px-5 sm:px-8 py-20 bg-[var(--bg-section)] border-t border-[var(--border)]">
         <div className="max-w-lg mx-auto">
           <div className="text-center mb-10">
-            <h2 className="font-display font-black text-3xl sm:text-4xl text-white mb-3">{t("partners_form_h2")}</h2>
-            <p className="text-[#A0A0B8]">{t("partners_form_sub")}</p>
+            <h2 className="font-display font-black text-3xl sm:text-4xl text-[var(--text-primary)] mb-3">{t("partners_form_h2")}</h2>
+            <p className="text-[var(--text-secondary)]">{t("partners_form_sub")}</p>
           </div>
           <PartnerForm />
         </div>

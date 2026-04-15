@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function InvestorBanner() {
   return (
-    <section className="bg-[#0A0A0F] py-16">
+    <section className="bg-[var(--bg-base)] py-16">
       <div className="max-w-5xl mx-auto px-6">
         
         <motion.div
@@ -12,13 +12,13 @@ export default function InvestorBanner() {
           whileInView={{ opacity: 1, y: 0 }}
           className="bg-gradient-to-r from-[#6C5CE7] to-[#00D1B2] p-[1px] rounded-2xl"
         >
-          <div className="bg-[#12121A] rounded-2xl p-8 md:p-12 text-center">
+          <div className="bg-[var(--bg-card)] rounded-2xl p-8 md:p-12 text-center">
             
             <h2 className="text-3xl md:text-4xl font-semibold">
               Earn 25–30% Returns with EV Infrastructure
             </h2>
 
-            <p className="text-gray-400 mt-4 max-w-xl mx-auto">
+            <p className="text-[var(--text-secondary)] mt-4 max-w-xl mx-auto">
               Join early investment program, powering India’s EV delivery advancement. Limited fleet slots available.
             </p>
 

@@ -16,13 +16,13 @@ export default function EarningEstimator() {
   const fuelSaving = daysPerMonth * 250; // avg petrol bike cost per day
 
   return (
-    <div className="bg-[#12121A] border border-[#1E1E2E] rounded-2xl p-6 sm:p-8">
+    <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 sm:p-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
 
         {/* Slider: Days per month */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <label className="text-xs font-semibold uppercase tracking-wider text-[#A0A0B8]">
+            <label className="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]">
               Days worked / month
             </label>
             <span className="font-display font-black text-[#00C48C] text-xl">{daysPerMonth}</span>
@@ -35,7 +35,7 @@ export default function EarningEstimator() {
             onChange={(e) => setDaysPerMonth(Number(e.target.value))}
             className="w-full accent-[#00C48C] cursor-pointer"
           />
-          <div className="flex justify-between text-xs text-[#606080] mt-1">
+          <div className="flex justify-between text-xs text-[var(--text-muted)] mt-1">
             <span>10 days</span>
             <span>30 days</span>
           </div>
@@ -44,7 +44,7 @@ export default function EarningEstimator() {
         {/* Slider: Hours per day */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <label className="text-xs font-semibold uppercase tracking-wider text-[#A0A0B8]">
+            <label className="text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)]">
               Hours worked / day
             </label>
             <span className="font-display font-black text-[#00C48C] text-xl">{hoursPerDay} hrs</span>
@@ -57,7 +57,7 @@ export default function EarningEstimator() {
             onChange={(e) => setHoursPerDay(Number(e.target.value))}
             className="w-full accent-[#00C48C] cursor-pointer"
           />
-          <div className="flex justify-between text-xs text-[#606080] mt-1">
+          <div className="flex justify-between text-xs text-[var(--text-muted)] mt-1">
             <span>4 hrs</span>
             <span>14 hrs</span>
           </div>
@@ -88,18 +88,18 @@ export default function EarningEstimator() {
             positive: true,
           },
         ].map((row, i) => (
-          <div key={i} className="flex items-center justify-between py-2.5 border-b border-[#1E1E2E] last:border-0">
-            <span className="text-[#A0A0B8] text-sm">{row.label}</span>
+          <div key={i} className="flex items-center justify-between py-2.5 border-b border-[var(--border)] last:border-0">
+            <span className="text-[var(--text-secondary)] text-sm">{row.label}</span>
             <span className={`font-semibold text-sm ${row.positive ? "text-[#00C48C]" : "text-red-400"}`}>{row.value}</span>
           </div>
         ))}
       </div>
 
       {/* Result */}
-      <div className="bg-[#0A0A0F] border border-[#00C48C]/20 rounded-xl p-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="bg-[var(--bg-base)] border border-[#00C48C]/20 rounded-xl p-5 flex flex-col sm:flex-row items-center justify-between gap-3">
         <div>
-          <p className="text-[#A0A0B8] text-sm">Estimated monthly take-home</p>
-          <p className="text-xs text-[#606080] mt-0.5">
+          <p className="text-[var(--text-secondary)] text-sm">Estimated monthly take-home</p>
+          <p className="text-xs text-[var(--text-muted)] mt-0.5">
             + You save ₹{fuelSaving.toLocaleString("en-IN")} on fuel vs petrol bike
           </p>
         </div>
@@ -108,7 +108,7 @@ export default function EarningEstimator() {
         </p>
       </div>
 
-      <p className="text-xs text-[#606080] mt-4 text-center">
+      <p className="text-xs text-[var(--text-muted)] mt-4 text-center">
         *Based on ₹110/hr average delivery earnings in NCR. Actual earnings depend on platform, area & hours.
       </p>
     </div>

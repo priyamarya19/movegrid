@@ -49,7 +49,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#0A0A0F] text-white antialiased">
+      <body className="bg-[var(--bg-base)] text-[var(--text-primary)] antialiased">
         <Providers>
           <Navbar />
           <main>{children}</main>

@@ -1,0 +1,52 @@
+"use client";
+
+import { createContext, useContext, useEffect, useState } from "react";
+
+type Theme = "dark" | "light";
+
+interface ThemeContextValue {
+  theme: Theme;
+  toggleTheme: () => void;
+}
+
+const ThemeContext = createContext<ThemeContextValue>({
+  theme: "dark",
+  toggleTheme: () => {},
+});
+
+function getDefaultTheme(): Theme {
+  // IST = UTC+5:30. Light between 05:00–19:00 IST, dark otherwise.
+  const now = new Date();
+  const istHour = (now.getUTCHours() * 60 + now.getUTCMinutes() + 330) % (24 * 60) / 60;
+  return istHour >= 5 && istHour < 19 ? "light" : "dark";
+}
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [theme, setTheme] = useState<Theme>("dark");
+
+  useEffect(() => {
+    // Respect explicit user preference; otherwise use time-based default
+    const saved = localStorage.getItem("mg_theme") as Theme | null;
+    setTheme(saved === "light" || saved === "dark" ? saved : getDefaultTheme());
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("light", theme === "light");
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark";
+      localStorage.setItem("mg_theme", next);
+      return next;
+    });
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+
+export const useTheme = () => useContext(ThemeContext);

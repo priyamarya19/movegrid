@@ -77,20 +77,20 @@ export default function B2BContent() {
             <span className="w-1.5 h-1.5 rounded-full bg-[#0EA5E9] animate-pulse" />
             {t("b2b_badge")}
           </div>
-          <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+          <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] mb-6 leading-tight">
             {t("b2b_h1_1")}<br />
             <span className="text-[#0EA5E9]">{t("b2b_h1_2")}</span>
           </h1>
-          <p className="text-[#A0A0B8] text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">{t("b2b_hero_sub")}</p>
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-8 bg-[#12121A] border border-[#0EA5E9]/20 rounded-2xl px-8 py-5">
+          <p className="text-[var(--text-secondary)] text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">{t("b2b_hero_sub")}</p>
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-8 bg-[var(--bg-card)] border border-[#0EA5E9]/20 rounded-2xl px-8 py-5">
             <div className="text-center">
-              <p className="text-3xl font-display font-black text-[#0EA5E9]">₹5,600*<span className="text-lg font-semibold text-[#A0A0B8]">/mo</span></p>
-              <p className="text-xs text-[#606080] mt-1">{t("b2b_price_note")}</p>
+              <p className="text-3xl font-display font-black text-[#0EA5E9]">₹5,600*<span className="text-lg font-semibold text-[var(--text-secondary)]">/mo</span></p>
+              <p className="text-xs text-[var(--text-muted)] mt-1">{t("b2b_price_note")}</p>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-[#1E1E2E]" />
+            <div className="hidden sm:block w-px h-12 bg-[var(--border)]" />
             <div className="flex flex-col gap-1.5 text-sm text-left">
               {([t("b2b_inc_insurance"), t("b2b_inc_maint"), t("b2b_inc_volume")] as string[]).map((item) => (
-                <div key={item} className="flex items-center gap-2 text-[#A0A0B8]">
+                <div key={item} className="flex items-center gap-2 text-[var(--text-secondary)]">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
                   {item}
                 </div>
@@ -101,18 +101,18 @@ export default function B2BContent() {
       </section>
 
       {/* Benefits */}
-      <section className="px-5 sm:px-8 py-20 border-t border-[#1E1E2E]">
+      <section className="px-5 sm:px-8 py-20 border-t border-[var(--border)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-display font-black text-3xl sm:text-4xl text-white mb-3">{t("b2b_benefits_h2")}</h2>
-            <p className="text-[#A0A0B8] text-base max-w-xl mx-auto">{t("b2b_benefits_sub")}</p>
+            <h2 className="font-display font-black text-3xl sm:text-4xl text-[var(--text-primary)] mb-3">{t("b2b_benefits_h2")}</h2>
+            <p className="text-[var(--text-secondary)] text-base max-w-xl mx-auto">{t("b2b_benefits_sub")}</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {benefits.map((b, i) => (
-              <div key={i} className="bg-[#12121A] border border-[#1E1E2E] rounded-2xl p-6 hover:border-[#0EA5E9]/30 transition-colors group">
+              <div key={i} className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 hover:border-[#0EA5E9]/30 transition-colors group">
                 <div className="w-11 h-11 rounded-xl bg-[#0EA5E9]/10 flex items-center justify-center text-[#0EA5E9] mb-4 group-hover:bg-[#0EA5E9]/20 transition-colors">{b.icon}</div>
-                <h3 className="font-display font-bold text-white text-base mb-1.5">{b.title}</h3>
-                <p className="text-[#A0A0B8] text-sm leading-relaxed">{b.desc}</p>
+                <h3 className="font-display font-bold text-[var(--text-primary)] text-base mb-1.5">{b.title}</h3>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
@@ -120,21 +120,21 @@ export default function B2BContent() {
       </section>
 
       {/* Use Cases */}
-      <section className="px-5 sm:px-8 py-20 bg-[#0D0D14] border-t border-[#1E1E2E]">
+      <section className="px-5 sm:px-8 py-20 bg-[var(--bg-section)] border-t border-[var(--border)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-display font-black text-3xl sm:text-4xl text-white mb-3">{t("b2b_usecases_h2")}</h2>
-            <p className="text-[#A0A0B8] text-base">{t("b2b_usecases_sub")}</p>
+            <h2 className="font-display font-black text-3xl sm:text-4xl text-[var(--text-primary)] mb-3">{t("b2b_usecases_h2")}</h2>
+            <p className="text-[var(--text-secondary)] text-base">{t("b2b_usecases_sub")}</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {useCases.map((uc, i) => (
-              <div key={i} className="flex items-start gap-3 bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5">
+              <div key={i} className="flex items-start gap-3 bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-5">
                 <div className="w-8 h-8 rounded-lg bg-[#0EA5E9]/10 flex items-center justify-center text-[#0EA5E9] shrink-0 mt-0.5">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm mb-0.5">{uc.label}</p>
-                  <p className="text-[#606080] text-xs leading-relaxed">{uc.desc}</p>
+                  <p className="text-[var(--text-primary)] font-semibold text-sm mb-0.5">{uc.label}</p>
+                  <p className="text-[var(--text-muted)] text-xs leading-relaxed">{uc.desc}</p>
                 </div>
               </div>
             ))}
@@ -143,30 +143,30 @@ export default function B2BContent() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="px-5 sm:px-8 py-20 border-t border-[#1E1E2E]">
+      <section id="pricing" className="px-5 sm:px-8 py-20 border-t border-[var(--border)]">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-display font-black text-3xl sm:text-4xl text-white mb-3">{t("b2b_pricing_h2")}</h2>
-          <p className="text-[#A0A0B8] text-base mb-12">{t("b2b_pricing_sub")}</p>
+          <h2 className="font-display font-black text-3xl sm:text-4xl text-[var(--text-primary)] mb-3">{t("b2b_pricing_h2")}</h2>
+          <p className="text-[var(--text-secondary)] text-base mb-12">{t("b2b_pricing_sub")}</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {pricingTiers.map((tier, i) => (
-              <div key={i} className={`relative bg-[#12121A] border rounded-2xl p-6 text-center ${i === 0 ? "border-[#0EA5E9]/40" : "border-[#1E1E2E]"}`}>
+              <div key={i} className={`relative bg-[var(--bg-card)] border rounded-2xl p-6 text-center ${i === 0 ? "border-[#0EA5E9]/40" : "border-[var(--border)]"}`}>
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#0EA5E9] text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">{tier.tag}</span>
-                <p className="text-[#A0A0B8] text-sm mb-3">{tier.range}</p>
-                <p className="font-display font-black text-2xl text-white mb-1">{tier.price}</p>
-                <p className="text-xs text-[#606080]">{tier.note} + GST</p>
+                <p className="text-[var(--text-secondary)] text-sm mb-3">{tier.range}</p>
+                <p className="font-display font-black text-2xl text-[var(--text-primary)] mb-1">{tier.price}</p>
+                <p className="text-xs text-[var(--text-muted)]">{tier.note} + GST</p>
               </div>
             ))}
           </div>
-          <p className="mt-4 text-xs text-[#606080]">{t("b2b_pricing_note")}</p>
+          <p className="mt-4 text-xs text-[var(--text-muted)]">{t("b2b_pricing_note")}</p>
         </div>
       </section>
 
       {/* How It Works */}
-      <section className="px-5 sm:px-8 py-20 bg-[#0D0D14] border-t border-[#1E1E2E]">
+      <section className="px-5 sm:px-8 py-20 bg-[var(--bg-section)] border-t border-[var(--border)]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-display font-black text-3xl sm:text-4xl text-white mb-3">{t("b2b_steps_h2")}</h2>
-            <p className="text-[#A0A0B8]">{t("b2b_steps_sub")}</p>
+            <h2 className="font-display font-black text-3xl sm:text-4xl text-[var(--text-primary)] mb-3">{t("b2b_steps_h2")}</h2>
+            <p className="text-[var(--text-secondary)]">{t("b2b_steps_sub")}</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {steps.map((step, i) => (
@@ -174,10 +174,10 @@ export default function B2BContent() {
                 {i < steps.length - 1 && (
                   <div className="hidden sm:block absolute top-6 left-[calc(50%+2rem)] w-full h-px bg-gradient-to-r from-[#0EA5E9]/30 to-transparent" />
                 )}
-                <div className="bg-[#12121A] border border-[#1E1E2E] rounded-2xl p-6 text-center">
+                <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 text-center">
                   <span className="inline-block font-display font-black text-4xl text-[#0EA5E9]/20 mb-3">{step.num}</span>
-                  <h3 className="font-display font-bold text-white text-base mb-2">{step.title}</h3>
-                  <p className="text-[#A0A0B8] text-sm leading-relaxed">{step.desc}</p>
+                  <h3 className="font-display font-bold text-[var(--text-primary)] text-base mb-2">{step.title}</h3>
+                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -186,25 +186,25 @@ export default function B2BContent() {
       </section>
 
       {/* Form */}
-      <section id="form" className="px-5 sm:px-8 py-20 border-t border-[#1E1E2E]">
+      <section id="form" className="px-5 sm:px-8 py-20 border-t border-[var(--border)]">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="font-display font-black text-3xl sm:text-4xl text-white mb-3">{t("b2b_form_h2")}</h2>
-            <p className="text-[#A0A0B8]">{t("b2b_form_sub")}</p>
+            <h2 className="font-display font-black text-3xl sm:text-4xl text-[var(--text-primary)] mb-3">{t("b2b_form_h2")}</h2>
+            <p className="text-[var(--text-secondary)]">{t("b2b_form_sub")}</p>
           </div>
           <B2BForm />
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="px-5 sm:px-8 py-20 bg-[#0D0D14] border-t border-[#1E1E2E]">
+      <section className="px-5 sm:px-8 py-20 bg-[var(--bg-section)] border-t border-[var(--border)]">
         <div className="max-w-3xl mx-auto">
-          <h2 className="font-display font-black text-3xl text-white text-center mb-10">{t("b2b_faq_h2")}</h2>
+          <h2 className="font-display font-black text-3xl text-[var(--text-primary)] text-center mb-10">{t("b2b_faq_h2")}</h2>
           <div className="space-y-3">
             {faqs.map((faq, i) => (
-              <div key={i} className="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6">
-                <p className="font-semibold text-white text-sm mb-2">{faq.q}</p>
-                <p className="text-[#A0A0B8] text-sm leading-relaxed">{faq.a}</p>
+              <div key={i} className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6">
+                <p className="font-semibold text-[var(--text-primary)] text-sm mb-2">{faq.q}</p>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

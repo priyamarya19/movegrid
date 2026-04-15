@@ -7,25 +7,51 @@
   --logo-blue: #1B5FA6;
 
   /* Audience accent colors */
-  --accent-partner: #00C48C;   /* Delivery partners — teal green */
-  --accent-investor: #6C5CE7;  /* Investors — purple */
-  --accent-b2b: #0EA5E9;       /* B2B fleet — sky blue */
+  --accent-partner: #00C48C;
+  --accent-investor: #6C5CE7;
+  --accent-b2b: #0EA5E9;
 
-  /* Surface palette */
+  /* Surface palette — dark (default) */
   --bg-base: #0A0A0F;
+  --bg-section: #0D0D14;
   --bg-card: #12121A;
   --bg-card-hover: #1A1A26;
+  --bg-footer: #08080D;
   --border: #1E1E2E;
   --border-light: #2A2A3E;
 
-  /* Text */
+  /* Text — dark */
   --text-primary: #FFFFFF;
   --text-secondary: #A0A0B8;
   --text-muted: #606080;
 
+  /* Navbar overlay */
+  --navbar-bg: rgba(10, 10, 15, 0.95);
+  --overlay-active: rgba(255, 255, 255, 0.10);
+  --overlay-hover: rgba(255, 255, 255, 0.05);
+
   /* Typography */
   --font-display: 'Exo 2', 'Exo', sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
+}
+
+/* ─── Light Theme Overrides ──────────────────────────────── */
+.light {
+  --bg-base: #F4F4F9;
+  --bg-section: #ECECF4;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F0F0FA;
+  --bg-footer: #E6E6F0;
+  --border: #DCDCEC;
+  --border-light: #CCCCE0;
+
+  --text-primary: #0E0E1A;
+  --text-secondary: #5C5C7A;
+  --text-muted: #9494B0;
+
+  --navbar-bg: rgba(244, 244, 249, 0.95);
+  --overlay-active: rgba(0, 0, 0, 0.08);
+  --overlay-hover: rgba(0, 0, 0, 0.04);
 }
 
 /* ─── Base ───────────────────────────────────────────────── */
@@ -59,7 +85,7 @@ h1, h2, h3, h4 {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-base);
+  background: var(--bg-section);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--border-light);

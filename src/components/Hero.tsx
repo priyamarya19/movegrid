@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative w-full bg-[#0A0A0F] text-white overflow-hidden">
+    <section className="relative w-full bg-[var(--bg-base)] text-[var(--text-primary)] overflow-hidden">
       
       {/* Background Glow */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#6C5CE7]/20 via-transparent to-[#00D1B2]/20 blur-3xl opacity-40" />
@@ -27,7 +27,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-6 text-gray-400 text-lg max-w-xl"
+            className="mt-6 text-[var(--text-secondary)] text-lg max-w-xl"
           >
             Invest in next-gen electric mobility infrastructure and earn up to 
             25–30% returns. Built for scale. Designed for the future.
@@ -56,7 +56,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Trust Line */}
-          <p className="mt-6 text-sm text-gray-500">
+          <p className="mt-6 text-sm text-[var(--text-muted)]">
             Trusted by growing logistics & mobility partners
           </p>
         </div>
@@ -69,13 +69,13 @@ export default function Hero() {
   initial={{ opacity: 0, scale: 0.9 }}
   animate={{ opacity: 1, scale: 1 }}
   transition={{ delay: 0.5 }}
-  className="bg-[#12121A] p-6 rounded-2xl shadow-xl border border-gray-800 text-center"
+  className="bg-[var(--bg-card)] p-6 rounded-2xl shadow-xl border border-[var(--border)] text-center"
 >
   <h3 className="text-lg font-semibold">Projected Returns</h3>
   <p className="text-4xl font-bold text-[#00D1B2] mt-2">
     25–30%
   </p>
-  <p className="text-gray-400 text-sm mt-1">
+  <p className="text-[var(--text-secondary)] text-sm mt-1">
     Monthly returns upto 24 Months
   </p>
 </motion.div>
@@ -85,9 +85,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="absolute -top-6 -left-6 bg-[#12121A] px-4 py-3 rounded-xl border border-gray-800"
+            className="absolute -top-6 -left-6 bg-[var(--bg-card)] px-4 py-3 rounded-xl border border-[var(--border)]"
           >
-            <p className="text-sm text-gray-400">Support </p>
+            <p className="text-sm text-[var(--text-secondary)]">Support </p>
             <p className="text-lg font-semibold">EV Revolution</p>
           </motion.div>
 
@@ -96,9 +96,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
-            className="absolute -bottom-6 -right-6 bg-[#12121A] px-4 py-3 rounded-xl border border-gray-800"
+            className="absolute -bottom-6 -right-6 bg-[var(--bg-card)] px-4 py-3 rounded-xl border border-[var(--border)]"
           >
-            <p className="text-sm text-gray-400">Reduce  </p>
+            <p className="text-sm text-[var(--text-secondary)]">Reduce  </p>
             <p className="text-lg font-semibold">CO₂ emission</p>
           </motion.div> 
           

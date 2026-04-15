@@ -11,7 +11,7 @@ const stats = [
 
 export default function Metrics() {
   return (
-    <section className="bg-[#0A0A0F] py-20 border-y border-gray-900">
+    <section className="bg-[var(--bg-base)] py-20 border-y border-gray-900">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
 
         {stats.map((stat, i) => (
@@ -24,7 +24,7 @@ export default function Metrics() {
             <p className="text-3xl font-bold text-[#00D1B2]">
               {stat.value}
             </p>
-            <p className="text-gray-400 mt-2 text-sm">
+            <p className="text-[var(--text-secondary)] mt-2 text-sm">
               {stat.label}
             </p>
           </motion.div>
