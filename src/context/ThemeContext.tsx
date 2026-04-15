@@ -18,7 +18,7 @@ function getDefaultTheme(): Theme {
   // IST = UTC+5:30. Light between 05:00–19:00 IST, dark otherwise.
   const now = new Date();
   const istHour = (now.getUTCHours() * 60 + now.getUTCMinutes() + 330) % (24 * 60) / 60;
-  return istHour >= 5 && istHour < 19 ? "light" : "dark";
+  return istHour >= 8 && istHour < 20 ? "light" : "dark";
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
