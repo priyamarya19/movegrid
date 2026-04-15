@@ -1,10 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import { useLang } from "@/context/LangContext";
+import { translations } from "@/lib/translations";
 
 const amounts = ["₹6L – ₹12L", "₹12L – ₹25L", "₹25L+"];
 
 export default function InvestForm() {
+  const { lang } = useLang();
+  const t = (key: keyof typeof translations.en) => translations[lang][key];
+
   const [form, setForm] = useState({ name: "", phone: "", amount: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -37,9 +42,9 @@ export default function InvestForm() {
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
-          <h3 className="text-xl font-display font-bold text-white mb-2">Request Received!</h3>
+          <h3 className="text-xl font-display font-bold text-white mb-2">{t("form_invest_success_h")}</h3>
           <p className="text-[#A0A0B8] text-sm">
-            Our investment team will reach out within <span className="text-white font-semibold">24 hours</span> with full details and ROI breakdown.
+            {t("form_invest_success_sub")} <span className="text-white font-semibold">{t("form_invest_success_hours")}</span> {t("form_invest_success_end")}
           </p>
         </div>
       </section>
@@ -50,32 +55,32 @@ export default function InvestForm() {
     <section id="invest-form" className="py-20 px-5 sm:px-8">
       <div className="max-w-lg mx-auto">
         <div className="text-center mb-8">
-          <h2 className="font-display font-black text-3xl text-white mb-2">Start Your Investment</h2>
-          <p className="text-[#A0A0B8] text-sm">Our team will call you with a complete ROI plan.</p>
+          <h2 className="font-display font-black text-3xl text-white mb-2">{t("invest_form_h2")}</h2>
+          <p className="text-[#A0A0B8] text-sm">{t("invest_form_sub")}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-[#12121A] border border-[#1E1E2E] rounded-2xl p-6 sm:p-8 space-y-4">
           <div>
-            <label className="block text-xs font-semibold text-[#A0A0B8] uppercase tracking-wider mb-1.5">Full Name *</label>
+            <label className="block text-xs font-semibold text-[#A0A0B8] uppercase tracking-wider mb-1.5">{t("form_invest_name_label")}</label>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
-              placeholder="Your full name"
+              placeholder={t("form_name_placeholder")}
               required
               className="w-full bg-[#0A0A0F] border border-[#1E1E2E] rounded-xl px-4 py-3 text-white placeholder-[#606080] text-sm focus:outline-none focus:border-[#6C5CE7] transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-[#A0A0B8] uppercase tracking-wider mb-1.5">Phone Number *</label>
+            <label className="block text-xs font-semibold text-[#A0A0B8] uppercase tracking-wider mb-1.5">{t("form_phone_label")}</label>
             <input
               type="tel"
               name="phone"
               value={form.phone}
               onChange={handleChange}
-              placeholder="+91 98765 43210"
+              placeholder={t("form_phone_placeholder")}
               required
               pattern="[0-9+\s]{10,14}"
               className="w-full bg-[#0A0A0F] border border-[#1E1E2E] rounded-xl px-4 py-3 text-white placeholder-[#606080] text-sm focus:outline-none focus:border-[#6C5CE7] transition-colors"
@@ -83,7 +88,7 @@ export default function InvestForm() {
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-[#A0A0B8] uppercase tracking-wider mb-1.5">Investment Range *</label>
+            <label className="block text-xs font-semibold text-[#A0A0B8] uppercase tracking-wider mb-1.5">{t("form_invest_amount_label")}</label>
             <select
               name="amount"
               value={form.amount}
@@ -91,13 +96,13 @@ export default function InvestForm() {
               required
               className="w-full bg-[#0A0A0F] border border-[#1E1E2E] rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#6C5CE7] transition-colors appearance-none"
             >
-              <option value="" disabled>Select investment range</option>
+              <option value="" disabled>{t("form_invest_amount_placeholder")}</option>
               {amounts.map((a) => <option key={a} value={a}>{a}</option>)}
             </select>
           </div>
 
           {status === "error" && (
-            <p className="text-red-400 text-sm text-center">Something went wrong. Please try again or WhatsApp us.</p>
+            <p className="text-red-400 text-sm text-center">{t("form_invest_error")}</p>
           )}
 
           <button
@@ -105,11 +110,11 @@ export default function InvestForm() {
             disabled={status === "loading"}
             className="w-full py-3.5 rounded-xl font-semibold text-sm bg-[#6C5CE7] text-white hover:bg-[#7C6CF7] disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
           >
-            {status === "loading" ? "Submitting..." : "Get Investment Details →"}
+            {status === "loading" ? t("form_invest_submitting") : t("form_invest_submit")}
           </button>
 
           <p className="text-center text-xs text-[#606080]">
-            Investment involves risk. Please read all disclosures before committing.
+            {t("form_invest_disclaimer")}
           </p>
         </form>
       </div>

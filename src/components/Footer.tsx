@@ -1,26 +1,33 @@
+"use client";
+
 import Link from "next/link";
 import { LogoWordmark } from "./LogoWordmark";
-
-const footerLinks = {
-  "For Riders": [
-    { label: "Join as Delivery Partner", href: "/partners" },
-    { label: "How It Works", href: "/partners#how-it-works" },
-    { label: "Earning Plans", href: "/partners#earnings" },
-    { label: "Path to Ownership", href: "/partners#ownership" },
-  ],
-  "For Business": [
-    { label: "B2B Fleet Rental", href: "/b2b" },
-    { label: "Pricing", href: "/b2b#pricing" },
-    { label: "Get a Quote", href: "/b2b#form" },
-  ],
-  "Investors": [
-    { label: "Investment Overview", href: "/invest" },
-    { label: "Returns & ROI", href: "/invest#snapshot" },
-    { label: "Risk Disclosure", href: "/invest#risk" },
-  ],
-};
+import { useLang } from "@/context/LangContext";
+import { translations } from "@/lib/translations";
 
 export default function Footer() {
+  const { lang } = useLang();
+  const t = (key: keyof typeof translations.en) => translations[lang][key];
+
+  const footerLinks = {
+    [t("footer_for_riders")]: [
+      { label: t("footer_join_partner"), href: "/partners" },
+      { label: t("footer_how_it_works"), href: "/partners#how-it-works" },
+      { label: t("footer_earning_plans"), href: "/partners#earnings" },
+      { label: t("footer_ownership"), href: "/partners#ownership" },
+    ],
+    [t("footer_for_business")]: [
+      { label: t("footer_b2b_rental"), href: "/b2b" },
+      { label: t("footer_pricing"), href: "/b2b#pricing" },
+      { label: t("footer_get_quote"), href: "/b2b#form" },
+    ],
+    [t("footer_investors")]: [
+      { label: t("footer_invest_overview"), href: "/invest" },
+      { label: t("footer_returns"), href: "/invest#snapshot" },
+      { label: t("footer_risk"), href: "/invest#risk" },
+    ],
+  };
+
   return (
     <footer className="bg-[#08080D] border-t border-[#1E1E2E]">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-14 pb-8">
@@ -32,12 +39,11 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <LogoWordmark height={48} className="mb-4" />
             <p className="text-[#A0A0B8] text-sm leading-relaxed max-w-xs">
-              Building India&apos;s most advanced EV fleet network — empowering delivery partners,
-              enabling businesses, and growing investor returns.
+              {t("footer_tagline")}
             </p>
 
             <div className="mt-6 space-y-2">
-              <p className="text-xs text-[#606080] uppercase tracking-wider font-semibold">Contact</p>
+              <p className="text-xs text-[#606080] uppercase tracking-wider font-semibold">{t("footer_contact")}</p>
               <a
                 href="https://wa.me/918077966653"
                 target="_blank"
@@ -49,7 +55,7 @@ export default function Footer() {
                 </svg>
                 +91 80779 66653
               </a>
-              <p className="text-sm text-[#A0A0B8]">NCR, India</p>
+              <p className="text-sm text-[#A0A0B8]">{t("footer_location")}</p>
             </div>
           </div>
 
@@ -81,7 +87,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Movegrid Technologies Pvt Ltd. All rights reserved.
           </p>
           <p className="text-xs text-[#606080] text-center sm:text-right max-w-sm">
-            Investment involves risk. Returns are not guaranteed. Please read all risk disclosures before investing.
+            {t("footer_legal")}
           </p>
         </div>
       </div>

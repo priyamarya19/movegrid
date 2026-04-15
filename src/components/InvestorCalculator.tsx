@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useLang } from "@/context/LangContext";
+import { translations } from "@/lib/translations";
 
 const SCOOTER_COST = 25000;
 const RETURN_RATE = 0.27; // 27% total over 24 months — not displayed
@@ -20,6 +22,9 @@ function formatINR(amount: number) {
 }
 
 export default function InvestorCalculator() {
+  const { lang } = useLang();
+  const t = (key: keyof typeof translations.en) => translations[lang][key];
+
   const [scooters, setScooters] = useState(25);
 
   const investment = scooters * SCOOTER_COST;
@@ -53,7 +58,7 @@ export default function InvestorCalculator() {
       <div className="mb-8">
         <div className="flex items-center justify-between mb-3">
           <label className="text-xs font-semibold uppercase tracking-wider text-[#A0A0B8]">
-            Number of scooters
+            {t("calc_scooters")}
           </label>
           <span className="font-display font-black text-2xl text-[#6C5CE7]">{scooters}</span>
         </div>
@@ -66,43 +71,44 @@ export default function InvestorCalculator() {
           onChange={(e) => setScooters(Number(e.target.value))}
           className="w-full accent-[#6C5CE7] cursor-pointer"
         />
-        <div className="flex justify-between text-xs text-[#606080] mt-1">
-          <span>10</span>
-          <span>25</span>
-          <span>50</span>
-          <span>100</span>
+        <div className="relative text-xs text-[#606080] mt-1 h-4">
+          {/* Labels positioned at their actual slider percentages: (val-10)/(100-10)*100 */}
+          <span className="absolute" style={{ left: "0%" }}>10</span>
+          <span className="absolute -translate-x-1/2" style={{ left: "16.7%" }}>25</span>
+          <span className="absolute -translate-x-1/2" style={{ left: "44.4%" }}>50</span>
+          <span className="absolute -translate-x-full" style={{ left: "100%" }}>100</span>
         </div>
       </div>
 
       {/* Output cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
         <div className="bg-[#0A0A0F] border border-[#1E1E2E] rounded-xl p-4 text-center">
-          <p className="text-xs text-[#606080] mb-1">Total Investment</p>
+          <p className="text-xs text-[#606080] mb-1">{t("calc_investment")}</p>
           <p className="font-display font-black text-xl text-white">{formatINR(investment)}</p>
           <p className="text-xs text-[#606080] mt-1">{scooters} × {formatINR(SCOOTER_COST)}</p>
         </div>
 
         <div className="bg-[#0A0A0F] border border-[#6C5CE7]/20 rounded-xl p-4 text-center">
-          <p className="text-xs text-[#606080] mb-1">Monthly Payout*</p>
+          <p className="text-xs text-[#606080] mb-1">{t("calc_monthly")}</p>
           <p className="font-display font-black text-xl text-[#6C5CE7]">{formatINR(Math.round(monthlyPayout))}*</p>
-          <p className="text-xs text-[#606080] mt-1">for 24 months</p>
+          <p className="text-xs text-[#606080] mt-1">{t("calc_monthly_sub")}</p>
         </div>
 
         <div className="bg-[#0A0A0F] border border-[#1E1E2E] rounded-xl p-4 text-center">
-          <p className="text-xs text-[#606080] mb-1">Total at Maturity*</p>
+          <p className="text-xs text-[#606080] mb-1">{t("calc_maturity")}</p>
           <p className="font-display font-black text-xl text-white">{formatINR(Math.round(totalAtMaturity))}*</p>
-          <p className="text-xs text-[#606080] mt-1">after 24 months</p>
+          <p className="text-xs text-[#606080] mt-1">{t("calc_maturity_sub")}</p>
         </div>
       </div>
 
       {/* Breakdown bar */}
       <div className="bg-[#0A0A0F] rounded-xl p-4 mb-4">
         <div className="flex items-center justify-between text-sm mb-2">
-          <span className="text-[#A0A0B8]">Principal</span>
+          <span className="text-[#A0A0B8]">{t("calc_principal")}</span>
           <span className="text-white font-semibold">{formatINR(investment)}</span>
         </div>
         <div className="flex items-center justify-between text-sm">
-          <span className="text-[#A0A0B8]">Returns earned*</span>
+          <span className="text-[#A0A0B8]">{t("calc_returns")}</span>
           <span className="text-[#6C5CE7] font-semibold">+ {formatINR(Math.round(totalReturn))}*</span>
         </div>
         {/* Visual bar */}
@@ -114,13 +120,13 @@ export default function InvestorCalculator() {
           <div className="bg-[#6C5CE7] rounded-r-full flex-1 transition-all duration-300" />
         </div>
         <div className="flex justify-between text-xs text-[#606080] mt-1">
-          <span>Principal</span>
-          <span>Returns</span>
+          <span>{t("calc_principal")}</span>
+          <span>{t("calc_returns")}</span>
         </div>
       </div>
 
       <p className="text-xs text-[#606080] leading-relaxed">
-        * Returns are indicative and not guaranteed. Actual payouts depend on fleet utilization and operational performance. Investment involves risk.
+        {t("calc_disclaimer")}
       </p>
     </div>
   );
