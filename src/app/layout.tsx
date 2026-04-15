@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.movegrid.in"),
   title: {
     default: "MoveGrid — EV Fleet for Delivery & Business",
     template: "%s | MoveGrid",
@@ -22,6 +23,14 @@ export const metadata: Metadata = {
     siteName: "MoveGrid",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/logo-icon.png",
+        width: 256,
+        height: 256,
+        alt: "MoveGrid",
+      },
+    ],
   },
 };
 
