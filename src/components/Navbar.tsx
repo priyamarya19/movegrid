@@ -27,6 +27,7 @@ export default function Navbar() {
   const t = (key: keyof typeof translations.en) => translations[lang][key];
 
   useEffect(() => {
+    setScrolled(window.scrollY > 20);
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);

@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useLang } from "@/context/LangContext";
 import { translations } from "@/lib/translations";
 
-const SCOOTER_COST = 25000;
-const RETURN_RATE = 0.27; // 27% total over 24 months — not displayed
+const SCOOTER_COST = 27000;
+const MONTHLY_PER_SCOOTER = 1430;
 const DURATION_MONTHS = 24;
 
 const slabs = [
@@ -28,9 +28,9 @@ export default function InvestorCalculator() {
   const [scooters, setScooters] = useState(25);
 
   const investment = scooters * SCOOTER_COST;
-  const totalReturn = investment * RETURN_RATE;
-  const totalAtMaturity = investment + totalReturn;
-  const monthlyPayout = totalAtMaturity / DURATION_MONTHS;
+  const monthlyPayout = scooters * MONTHLY_PER_SCOOTER;
+  const totalAtMaturity = monthlyPayout * DURATION_MONTHS;
+  const totalReturn = totalAtMaturity - investment;
 
   const activeSlab = slabs.findIndex(s => scooters >= s.min && scooters <= s.max);
 
