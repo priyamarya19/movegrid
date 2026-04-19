@@ -9,7 +9,7 @@ import { useTheme } from "@/context/ThemeContext";
 import { translations } from "@/lib/translations";
 
 // ── Feature flags ─────────────────────────────────────────
-const SHOW_LANG_TOGGLE = true; // flip to false to hide before shipping
+const SHOW_LANG_TOGGLE = false; // flip to true when i18n is ready to ship
 
 const navLinks = (t: (k: keyof typeof translations.en) => string) => [
   { href: "/", label: t("nav_home") },
