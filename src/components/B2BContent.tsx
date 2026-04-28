@@ -171,9 +171,6 @@ export default function B2BContent() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {steps.map((step, i) => (
               <div key={i} className="relative">
-                {i < steps.length - 1 && (
-                  <div className="hidden sm:block absolute top-6 left-[calc(50%+2rem)] w-full h-px bg-gradient-to-r from-[#0EA5E9]/30 to-transparent" />
-                )}
                 <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-6 text-center">
                   <span className="inline-block font-display font-black text-4xl text-[#0EA5E9]/20 mb-3">{step.num}</span>
                   <h3 className="font-display font-bold text-[var(--text-primary)] text-base mb-2">{step.title}</h3>
