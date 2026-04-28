@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useLang } from "@/context/LangContext";
 import { translations } from "@/lib/translations";
 
-const SCOOTER_COST = 27000;
-const MONTHLY_PER_SCOOTER = 1430;
+const SCOOTER_COST = 30000;
+const MONTHLY_PER_SCOOTER = 1563;
 const DURATION_MONTHS = 24;
 
 const slabs = [
