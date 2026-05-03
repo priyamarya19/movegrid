@@ -87,8 +87,9 @@ export default function B2BForm() {
           type="tel"
           name="phone"
           value={form.phone}
-          onChange={handleChange}
+          onChange={(e) => { if (e.target.value.replace(/\D/g, "").length <= 10) handleChange(e); }}
           placeholder={t("form_phone_placeholder")}
+          maxLength={10}
           className={`w-full bg-[var(--bg-base)] border rounded-xl px-4 py-3 text-[var(--text-primary)] placeholder-[var(--text-muted)] text-sm focus:outline-none transition-colors ${errors.phone ? "border-red-500 focus:border-red-500" : "border-[var(--border)] focus:border-[#0EA5E9]"}`}
         />
         {errors.phone && <p className="text-red-400 text-xs mt-1">{errors.phone}</p>}
