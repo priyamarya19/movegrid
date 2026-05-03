@@ -11,14 +11,27 @@ export default function PartnerForm() {
   const t = (key: keyof typeof translations.en) => translations[lang][key];
 
   const [form, setForm] = useState({ name: "", phone: "", city: "" });
+  const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const validate = () => {
+    const e: { name?: string; phone?: string } = {};
+    if (!form.name.trim() || form.name.trim().length < 2) e.name = "Name must be at least 2 characters";
+    else if (!/^[a-zA-Z\s]+$/.test(form.name.trim())) e.name = "Name can only contain letters";
+    const digits = form.phone.replace(/\D/g, "").slice(-10);
+    if (digits.length !== 10 || !/^[6-9]/.test(digits)) e.phone = "Please enter a valid phone number";
+    return e;
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setErrors((prev) => ({ ...prev, [e.target.name]: undefined }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const errs = validate();
+    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setStatus("loading");
     try {
       const res = await fetch("/api/partner-lead", {
@@ -61,9 +74,9 @@ export default function PartnerForm() {
           value={form.name}
           onChange={handleChange}
           placeholder={t("form_name_placeholder")}
-          required
-          className="w-full bg-[var(--bg-base)] border border-[var(--border)] rounded-xl px-4 py-3 text-[var(--text-primary)] placeholder-[var(--text-muted)] text-sm focus:outline-none focus:border-[#00C48C] transition-colors"
+          className={`w-full bg-[var(--bg-base)] border rounded-xl px-4 py-3 text-[var(--text-primary)] placeholder-[var(--text-muted)] text-sm focus:outline-none transition-colors ${errors.name ? "border-red-500 focus:border-red-500" : "border-[var(--border)] focus:border-[#00C48C]"}`}
         />
+        {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
       </div>
 
       <div>
@@ -76,10 +89,9 @@ export default function PartnerForm() {
           value={form.phone}
           onChange={handleChange}
           placeholder={t("form_phone_placeholder")}
-          required
-          pattern="[0-9+\s]{10,14}"
-          className="w-full bg-[var(--bg-base)] border border-[var(--border)] rounded-xl px-4 py-3 text-[var(--text-primary)] placeholder-[var(--text-muted)] text-sm focus:outline-none focus:border-[#00C48C] transition-colors"
+          className={`w-full bg-[var(--bg-base)] border rounded-xl px-4 py-3 text-[var(--text-primary)] placeholder-[var(--text-muted)] text-sm focus:outline-none transition-colors ${errors.phone ? "border-red-500 focus:border-red-500" : "border-[var(--border)] focus:border-[#00C48C]"}`}
         />
+        {errors.phone && <p className="text-red-400 text-xs mt-1">{errors.phone}</p>}
       </div>
 
       <div>
