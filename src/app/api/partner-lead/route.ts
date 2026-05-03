@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import pool from "@/lib/db";
 import { auditLog } from "@/lib/audit";
+import { schemas } from "@/lib/schemas";
 
 export async function POST(req: Request) {
   try {
@@ -10,7 +11,7 @@ export async function POST(req: Request) {
       process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
     await pool.query(
-      "INSERT INTO leads.leads (type, name, phone, city) VALUES ($1, $2, $3, $4)",
+      `INSERT INTO ${schemas.leads}.leads (type, name, phone, city) VALUES ($1, $2, $3, $4)`,
       ["rider", name, phone, city]
     );
     console.log(`[rider-lead] ${name} | ${phone} | ${city}`);

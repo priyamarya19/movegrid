@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import pool from "@/lib/db";
 import { auditLog } from "@/lib/audit";
+import { schemas } from "@/lib/schemas";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
@@ -11,7 +12,7 @@ export async function POST(req: Request) {
     const userPhone = `whatsapp:+91${phone}`;
 
     await pool.query(
-      "INSERT INTO leads.leads (type, name, phone, amount) VALUES ($1, $2, $3, $4)",
+      `INSERT INTO ${schemas.leads}.leads (type, name, phone, amount) VALUES ($1, $2, $3, $4)`,
       ["investor", name, phone, amount]
     );
     console.log(`[investor-lead] ${name} | ${phone} | ${amount}`);

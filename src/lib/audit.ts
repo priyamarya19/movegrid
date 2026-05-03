@@ -1,4 +1,5 @@
 import pool from "@/lib/db";
+import { schemas } from "@/lib/schemas";
 
 interface AuditParams {
   action: string;
@@ -12,7 +13,7 @@ interface AuditParams {
 export async function auditLog(params: AuditParams) {
   try {
     await pool.query(
-      `INSERT INTO logs.audit_logs (action, entity, entity_id, actor_id, details, ip_address)
+      `INSERT INTO ${schemas.logs}.audit_logs (action, entity, entity_id, actor_id, details, ip_address)
        VALUES ($1, $2, $3, $4, $5, $6)`,
       [
         params.action,
