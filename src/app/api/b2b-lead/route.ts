@@ -9,7 +9,14 @@ export async function POST(req: Request) {
   try {
     const { name, phone, fleet_size } = await req.json();
 
-    // Save to RDS
+    const existing = await pool.query(
+      `SELECT id FROM ${schemas.leads}.leads WHERE phone = $1 AND type = 'fleet'`,
+      [phone]
+    );
+    if (existing.rows.length > 0) {
+      return NextResponse.json({ success: false, duplicate: true }, { status: 409 });
+    }
+
     await pool.query(
       `INSERT INTO ${schemas.leads}.leads (type, name, phone, fleet_size) VALUES ($1, $2, $3, $4)`,
       ["fleet", name, phone, fleet_size]

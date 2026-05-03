@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useLang } from "@/context/LangContext";
 import { translations } from "@/lib/translations";
 
-const amounts = ["₹6L – ₹12L", "₹12L – ₹25L", "₹25L+"];
+const amounts = ["Up to ₹6L", "₹6L – ₹12L", "₹12L – ₹25L", "₹25L+"];
 
 export default function InvestForm() {
   const { lang } = useLang();
@@ -12,7 +12,7 @@ export default function InvestForm() {
 
   const [form, setForm] = useState({ name: "", phone: "", amount: "" });
   const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error" | "duplicate">("idle");
 
   const validate = () => {
     const e: { name?: string; phone?: string } = {};
@@ -39,6 +39,8 @@ export default function InvestForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
+      const data = await res.json();
+      if (data.duplicate) { setStatus("duplicate"); return; }
       if (!res.ok) throw new Error("Failed");
       setStatus("success");
     } catch {
@@ -116,6 +118,9 @@ export default function InvestForm() {
 
           {status === "error" && (
             <p className="text-red-400 text-sm text-center">{t("form_invest_error")}</p>
+          )}
+          {status === "duplicate" && (
+            <p className="text-yellow-400 text-sm text-center">This phone number has already been registered. Our team will reach out to you shortly.</p>
           )}
 
           <button

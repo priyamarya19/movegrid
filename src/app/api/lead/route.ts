@@ -11,6 +11,14 @@ export async function POST(req: Request) {
 
     const userPhone = `whatsapp:+91${phone}`;
 
+    const existing = await pool.query(
+      `SELECT id FROM ${schemas.leads}.leads WHERE phone = $1 AND type = 'investor'`,
+      [phone]
+    );
+    if (existing.rows.length > 0) {
+      return NextResponse.json({ success: false, duplicate: true }, { status: 409 });
+    }
+
     await pool.query(
       `INSERT INTO ${schemas.leads}.leads (type, name, phone, amount) VALUES ($1, $2, $3, $4)`,
       ["investor", name, phone, amount]

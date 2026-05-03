@@ -12,7 +12,7 @@ export default function B2BForm() {
 
   const [form, setForm] = useState({ name: "", phone: "", fleet_size: "" });
   const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error" | "duplicate">("idle");
 
   const validate = () => {
     const e: { name?: string; phone?: string } = {};
@@ -39,6 +39,8 @@ export default function B2BForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
+      const data = await res.json();
+      if (data.duplicate) { setStatus("duplicate"); return; }
       if (!res.ok) throw new Error("Failed");
       setStatus("success");
     } catch {
@@ -113,6 +115,9 @@ export default function B2BForm() {
 
       {status === "error" && (
         <p className="text-red-400 text-sm text-center">{t("form_error")}</p>
+      )}
+      {status === "duplicate" && (
+        <p className="text-yellow-400 text-sm text-center">This phone number has already been registered. Our team will reach out to you shortly.</p>
       )}
 
       <button
