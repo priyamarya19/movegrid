@@ -9,17 +9,6 @@ const client = twilio(
 export async function POST(req: Request) {
   const body = await req.json();
 
-  // ✅ Step 2: log full body (VERY IMPORTANT)
-    console.log("BODY:", body);
-
-    // ✅ Step 3: extract values
-    const { name, phone, amount } = body;
-
-    // ✅ Step 4: log individual values
-    console.log("NAME:", name);
-    console.log("PHONE:", phone);
-    console.log("AMOUNT:", amount);
-
   try {
     await client.messages.create({
       body: body.message,

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import pool from "@/lib/db";
+import { auditLog } from "@/lib/audit";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
@@ -12,6 +13,8 @@ export async function POST(req: Request) {
       "INSERT INTO leads.leads (type, name, phone, fleet_size) VALUES ($1, $2, $3, $4)",
       ["fleet", name, phone, fleet_size]
     );
+    console.log(`[fleet-lead] ${name} | ${phone} | ${fleet_size}`);
+    await auditLog({ action: "lead_created", entity: "fleet", details: { name, phone, fleet_size } });
 
     // WhatsApp to admin
     await fetch(`${baseUrl}/api/send-whatsapp`, {

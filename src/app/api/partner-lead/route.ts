@@ -1,20 +1,20 @@
 import { NextResponse } from "next/server";
 import pool from "@/lib/db";
+import { auditLog } from "@/lib/audit";
 
 export async function POST(req: Request) {
   try {
     const { name, phone, city } = await req.json();
 
-    console.log("🚴 New Partner:", name, phone, city);
-
     const baseUrl =
       process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
-    // Save to RDS
     await pool.query(
       "INSERT INTO leads.leads (type, name, phone, city) VALUES ($1, $2, $3, $4)",
       ["rider", name, phone, city]
     );
+    console.log(`[rider-lead] ${name} | ${phone} | ${city}`);
+    await auditLog({ action: "lead_created", entity: "rider", details: { name, phone, city } });
 
     // WhatsApp to admin
     await fetch(`${baseUrl}/api/send-whatsapp`, {
