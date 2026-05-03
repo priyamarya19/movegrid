@@ -1,11 +1,7 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import pool from "@/lib/db";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
 
 export async function POST(req: Request) {
   try {
@@ -15,9 +11,12 @@ export async function POST(req: Request) {
 
     const userPhone = `whatsapp:+91${phone}`;
 
-    // Save to DB
-    await supabase.from("leads").insert([{ name, phone, amount }]);
-    console.log("✅ Saved to DB");
+    // Save to RDS
+    await pool.query(
+      "INSERT INTO leads.leads (type, name, phone, amount) VALUES ($1, $2, $3, $4)",
+      ["investor", name, phone, amount]
+    );
+    console.log("✅ Saved to RDS");
 
     // WhatsApp to YOU
     const wa1 = await fetch(`${baseUrl}/api/send-whatsapp`, {
