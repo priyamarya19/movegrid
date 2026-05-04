@@ -8,12 +8,18 @@ import Script from "next/script";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.movegrid.in"),
   title: {
-    default: "MoveGrid — EV Fleet for Delivery & Business",
+    default: "MoveGrid — EV Fleet for Delivery & Business in Delhi NCR",
     template: "%s | MoveGrid",
   },
   description:
-    "Join MoveGrid to earn with EV scooters, rent a fleet for your business, or invest in India's EV infrastructure. Operating in NCR.",
-  keywords: ["EV fleet", "delivery partner", "EV scooter rental", "B2B fleet", "electric vehicle", "NCR"],
+    "MoveGrid provides electric vehicles for delivery partners, EV fleet rental for businesses, and EV investment opportunities in Delhi NCR. Zero fuel costs, fully maintained scooters.",
+  keywords: [
+    "electric vehicle", "EV scooter", "electric scooter", "EV fleet",
+    "delivery partner", "EV scooter rental", "B2B fleet", "electric vehicle NCR",
+    "EV delivery", "electric scooter delivery", "EV for business", "EV investment",
+    "electric vehicle Delhi", "electric scooter Delhi NCR", "EV fleet India",
+    "delivery partner program", "electric vehicle rental", "EV partner",
+  ],
   authors: [{ name: "Movegrid Technologies Pvt Ltd" }],
   icons: {
     icon: "/favicon.png",
@@ -29,9 +35,17 @@ export const metadata: Metadata = {
         url: "/logo-icon.png",
         width: 256,
         height: 256,
-        alt: "MoveGrid",
+        alt: "MoveGrid — EV Fleet for Delivery & Business",
       },
     ],
+  },
+  twitter: {
+    card: "summary",
+    site: "@movegrid",
+    title: "MoveGrid — EV Fleet for Delivery & Business in Delhi NCR",
+    description:
+      "Ride an EV scooter and earn, rent a fleet for your business, or invest in India's EV infrastructure. Operating in Delhi NCR.",
+    images: ["/logo-icon.png"],
   },
 };
 
@@ -43,6 +57,45 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Script id="schema-org" type="application/ld+json" strategy="beforeInteractive">{`
+          {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://www.movegrid.in/#organization",
+                "name": "Movegrid Technologies Pvt Ltd",
+                "url": "https://www.movegrid.in",
+                "logo": "https://www.movegrid.in/logo-icon.png",
+                "sameAs": [
+                  "https://www.instagram.com/movegrid",
+                  "https://www.linkedin.com/company/movegrid/",
+                  "https://www.facebook.com/profile.php?id=61589003842416"
+                ],
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-96393-50154",
+                  "contactType": "customer service",
+                  "availableLanguage": ["English", "Hindi"]
+                }
+              },
+              {
+                "@type": "LocalBusiness",
+                "@id": "https://www.movegrid.in/#localbusiness",
+                "name": "MoveGrid",
+                "description": "EV fleet provider for delivery partners and businesses in Delhi NCR. Offers electric scooter rental, delivery partner programs, and EV investment opportunities.",
+                "url": "https://www.movegrid.in",
+                "logo": "https://www.movegrid.in/logo-icon.png",
+                "telephone": "+91-96393-50154",
+                "areaServed": ["Delhi", "Noida", "Gurugram", "Faridabad", "Ghaziabad", "Greater Noida"],
+                "priceRange": "₹₹",
+                "currenciesAccepted": "INR",
+                "paymentAccepted": "Cash, UPI, Bank Transfer",
+                "openingHours": "Mo-Sa 09:00-19:00"
+              }
+            ]
+          }
+        `}</Script>
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-J3B5ZN9CXT" strategy="afterInteractive" />
         <Script id="gtag-init" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
