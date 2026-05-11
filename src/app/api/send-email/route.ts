@@ -15,7 +15,7 @@ export async function POST(req: Request) {
   try {
     await ses.send(new SendEmailCommand({
       Source: "priyam@movegrid.in",
-      Destination: { ToAddresses: [process.env.ADMIN_EMAIL!] },
+      Destination: { ToAddresses: [process.env.ADMIN_EMAIL!, "ajay.mathur@movegrid.in"] },
       Message: {
         Subject: { Data: body.subject || "New Lead — MoveGrid" },
         Body: { Html: { Data: body.html } },
