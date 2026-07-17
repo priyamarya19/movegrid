@@ -6,13 +6,13 @@ import Providers from "@/components/Providers";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.movegrid.in"),
+  metadataBase: new URL("https://movegrid.in"),
   title: {
     default: "MoveGrid — EV Fleet for Delivery & Business in Delhi NCR",
     template: "%s | MoveGrid",
   },
   description:
-    "MoveGrid provides electric vehicles for delivery partners, EV fleet rental for businesses, and EV investment opportunities in Delhi NCR. Zero fuel costs, fully maintained scooters.",
+    "MoveGrid provides EVs for delivery partners, fleet rental for businesses, and EV investment opportunities in Delhi NCR. Zero fuel, fully maintained.",
   keywords: [
     "electric vehicle", "EV scooter", "electric scooter", "EV fleet",
     "delivery partner", "EV scooter rental", "B2B fleet", "electric vehicle NCR",
@@ -30,22 +30,13 @@ export const metadata: Metadata = {
     siteName: "MoveGrid",
     locale: "en_IN",
     type: "website",
-    images: [
-      {
-        url: "/logo-icon.png",
-        width: 256,
-        height: 256,
-        alt: "MoveGrid — EV Fleet for Delivery & Business",
-      },
-    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     site: "@movegrid",
     title: "MoveGrid — EV Fleet for Delivery & Business in Delhi NCR",
     description:
       "Ride an EV scooter and earn, rent a fleet for your business, or invest in India's EV infrastructure. Operating in Delhi NCR.",
-    images: ["/logo-icon.png"],
   },
 };
 
@@ -63,10 +54,10 @@ export default function RootLayout({
             "@graph": [
               {
                 "@type": "Organization",
-                "@id": "https://www.movegrid.in/#organization",
+                "@id": "https://movegrid.in/#organization",
                 "name": "Movegrid Technologies Pvt Ltd",
-                "url": "https://www.movegrid.in",
-                "logo": "https://www.movegrid.in/logo-icon.png",
+                "url": "https://movegrid.in",
+                "logo": "https://movegrid.in/logo-icon.png",
                 "sameAs": [
                   "https://www.instagram.com/movegrid",
                   "https://www.linkedin.com/company/movegrid/",
@@ -81,11 +72,11 @@ export default function RootLayout({
               },
               {
                 "@type": "LocalBusiness",
-                "@id": "https://www.movegrid.in/#localbusiness",
+                "@id": "https://movegrid.in/#localbusiness",
                 "name": "MoveGrid",
                 "description": "EV fleet provider for delivery partners and businesses in Delhi NCR. Offers electric scooter rental, delivery partner programs, and EV investment opportunities.",
-                "url": "https://www.movegrid.in",
-                "logo": "https://www.movegrid.in/logo-icon.png",
+                "url": "https://movegrid.in",
+                "logo": "https://movegrid.in/logo-icon.png",
                 "telephone": "+91-96393-50154",
                 "areaServed": ["Delhi", "Noida", "Gurugram", "Faridabad", "Ghaziabad", "Greater Noida"],
                 "priceRange": "₹₹",

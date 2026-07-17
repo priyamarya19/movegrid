@@ -10,10 +10,12 @@ export const metadata: Metadata = {
     "electric vehicle investment NCR", "asset backed EV investment", "EV startup investment India",
     "monthly returns EV fleet", "alternative investment electric vehicle",
   ],
+  alternates: { canonical: "https://movegrid.in/invest" },
   openGraph: {
     title: "Invest in EV Fleet | 25–30% Returns | MoveGrid",
     description: "Asset-backed EV fleet investment. Earn 25–30% annual returns with monthly payouts over 24 months. Delhi NCR.",
-    url: "https://www.movegrid.in/invest",
+    url: "https://movegrid.in/invest",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 };
 

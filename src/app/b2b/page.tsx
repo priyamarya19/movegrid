@@ -10,10 +10,12 @@ export const metadata: Metadata = {
     "electric vehicle B2B rental India", "EV scooter on rent Noida Gurugram", "commercial EV fleet NCR",
     "electric vehicle for logistics", "EV fleet management India",
   ],
+  alternates: { canonical: "https://movegrid.in/b2b" },
   openGraph: {
     title: "EV Fleet Rental for Business | MoveGrid Delhi NCR",
     description: "Rent electric scooters for your business from ₹5,600/month. No upfront cost, fully maintained. Delhi NCR.",
-    url: "https://www.movegrid.in/b2b",
+    url: "https://movegrid.in/b2b",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 };
 

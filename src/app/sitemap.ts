@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.movegrid.in";
+  const base = "https://movegrid.in";
   const now = new Date();
 
   return [
