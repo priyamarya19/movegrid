@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local working files — data exports and Claude Code settings, never committed
+*.xlsx
+*.csv
+.claude/
+public/dashboard-preview.html
